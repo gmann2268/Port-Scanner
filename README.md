@@ -1,1 +1,2 @@
 # Port-Scanner
+This program is designed to check a computer or network for available ports. It's like checking all the doors or windows of a house to see which ones are open. Network administrators would use this to ensure their networks are secured, whereas attackers might use it to find ways to break in.
