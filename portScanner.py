@@ -9,6 +9,21 @@ def connectionScan(targetHost, targetPort):
     except:
         print("[-]%d/tcp closed"% targetPort)
 
+def portScan(targetHost, targetPorts):
+    try:
+        targetIP = gethostbyname(targetHost)
+    except:
+        print("[-] Cannot resolve %s"% targetHost)
+        return
+    try:
+        targetName = gethostbyaddr(targetIP)
+        print("\n[+] Scan result of: %s"% targetName[0])
+    except:
+        print("\n[+] Scan result of: %s"% targetIP)
+    setdefaulttimeout(1)
+    for targetPort in targetPorts:
+        print("Scanning Port: %d"% targetPort)
+        connectionScan(targetHost, int(targetPort))
 
 if __name__ == '__main__':
-    connectionScan("172.217.31.174", 22)
+    portScan("google.com", [80, 22])
